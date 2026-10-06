@@ -1,0 +1,5 @@
+Probe Set,Weighted LBP Acc,Non-weighted LBP Acc
+fb,1.0000,1.0000
+fc,0.5417,0.5833
+dup1,0.9375,1.0000
+dup2,0.8750,1.0000

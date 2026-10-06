@@ -1,0 +1,323 @@
+{
+  "config": {
+    "border": "edge",
+    "data": "ORL",
+    "ks": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_gallery_per_subject": 5,
+    "n_perm": 100,
+    "n_probe_per_subject": 5,
+    "operators": [
+      [
+        8,
+        1.0
+      ],
+      [
+        8,
+        2.0
+      ],
+      [
+        16,
+        2.0
+      ]
+    ],
+    "seed": 0
+  },
+  "experiment": "sweep_orl",
+  "meta": {
+    "code_fingerprint": "d94d2757b0c6fe7112bb84204e0b05f8417f33c13f6611a0448445b5a6adc0cd",
+    "dataset_fingerprint": "9972801133ec8ba8b06221a0f2c7c087c2e2a8d99a5fdd0ddfbf90beb82d5ac3",
+    "environment": {
+      "machine": "AMD64",
+      "numpy": "2.1.3",
+      "pillow": "11.1.0",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.13.5",
+      "scipy": "1.15.3",
+      "threads_env": {
+        "MKL_NUM_THREADS": null,
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      }
+    },
+    "timestamp_utc": "2026-10-06T18:53:41+00:00"
+  },
+  "result_digest": "f057a860622286cbd16a9bc445c865d2cfeb04f0ee4cd54effa97ff48f0a9615",
+  "results": {
+    "LBP_16_2|k=2": {
+      "P": 16,
+      "P(HI>LL)": 1.0,
+      "P(chi2>HI)": 0.79,
+      "P(chi2>LL)": 1.0,
+      "R": 2.0,
+      "feature_length": 972,
+      "k": 2,
+      "mean_rate": {
+        "chi2": 0.9701,
+        "intersection": 0.9598499999999999,
+        "log_likelihood": 0.7585999999999999
+      },
+      "window": [
+        46,
+        56
+      ]
+    },
+    "LBP_16_2|k=3": {
+      "P": 16,
+      "P(HI>LL)": 0.99,
+      "P(chi2>HI)": 0.63,
+      "P(chi2>LL)": 1.0,
+      "R": 2.0,
+      "feature_length": 2187,
+      "k": 3,
+      "mean_rate": {
+        "chi2": 0.9826499999999997,
+        "intersection": 0.9767999999999999,
+        "log_likelihood": 0.9366000000000001
+      },
+      "window": [
+        30,
+        37
+      ]
+    },
+    "LBP_16_2|k=4": {
+      "P": 16,
+      "P(HI>LL)": 0.65,
+      "P(chi2>HI)": 0.55,
+      "P(chi2>LL)": 0.84,
+      "R": 2.0,
+      "feature_length": 3888,
+      "k": 4,
+      "mean_rate": {
+        "chi2": 0.9786499999999999,
+        "intersection": 0.9743499999999998,
+        "log_likelihood": 0.9645499999999998
+      },
+      "window": [
+        23,
+        28
+      ]
+    },
+    "LBP_16_2|k=5": {
+      "P": 16,
+      "P(HI>LL)": 0.62,
+      "P(chi2>HI)": 0.44,
+      "P(chi2>LL)": 0.72,
+      "R": 2.0,
+      "feature_length": 6075,
+      "k": 5,
+      "mean_rate": {
+        "chi2": 0.9697499999999999,
+        "intersection": 0.96745,
+        "log_likelihood": 0.9611999999999997
+      },
+      "window": [
+        18,
+        22
+      ]
+    },
+    "LBP_16_2|k=6": {
+      "P": 16,
+      "P(HI>LL)": 0.81,
+      "P(chi2>HI)": 0.38,
+      "P(chi2>LL)": 0.82,
+      "R": 2.0,
+      "feature_length": 8748,
+      "k": 6,
+      "mean_rate": {
+        "chi2": 0.9666499999999999,
+        "intersection": 0.965,
+        "log_likelihood": 0.9516499999999999
+      },
+      "window": [
+        15,
+        18
+      ]
+    },
+    "LBP_8_1|k=2": {
+      "P": 8,
+      "P(HI>LL)": 0.28,
+      "P(chi2>HI)": 0.7,
+      "P(chi2>LL)": 0.62,
+      "R": 1.0,
+      "feature_length": 236,
+      "k": 2,
+      "mean_rate": {
+        "chi2": 0.9472499999999999,
+        "intersection": 0.9405500000000001,
+        "log_likelihood": 0.9423
+      },
+      "window": [
+        46,
+        56
+      ]
+    },
+    "LBP_8_1|k=3": {
+      "P": 8,
+      "P(HI>LL)": 1.0,
+      "P(chi2>HI)": 0.72,
+      "P(chi2>LL)": 1.0,
+      "R": 1.0,
+      "feature_length": 531,
+      "k": 3,
+      "mean_rate": {
+        "chi2": 0.9695499999999998,
+        "intersection": 0.9627499999999998,
+        "log_likelihood": 0.9113500000000001
+      },
+      "window": [
+        30,
+        37
+      ]
+    },
+    "LBP_8_1|k=4": {
+      "P": 8,
+      "P(HI>LL)": 1.0,
+      "P(chi2>HI)": 0.64,
+      "P(chi2>LL)": 1.0,
+      "R": 1.0,
+      "feature_length": 944,
+      "k": 4,
+      "mean_rate": {
+        "chi2": 0.96965,
+        "intersection": 0.9641,
+        "log_likelihood": 0.829
+      },
+      "window": [
+        23,
+        28
+      ]
+    },
+    "LBP_8_1|k=5": {
+      "P": 8,
+      "P(HI>LL)": 1.0,
+      "P(chi2>HI)": 0.5,
+      "P(chi2>LL)": 1.0,
+      "R": 1.0,
+      "feature_length": 1475,
+      "k": 5,
+      "mean_rate": {
+        "chi2": 0.9601500000000001,
+        "intersection": 0.95725,
+        "log_likelihood": 0.8824999999999998
+      },
+      "window": [
+        18,
+        22
+      ]
+    },
+    "LBP_8_1|k=6": {
+      "P": 8,
+      "P(HI>LL)": 1.0,
+      "P(chi2>HI)": 0.59,
+      "P(chi2>LL)": 1.0,
+      "R": 1.0,
+      "feature_length": 2124,
+      "k": 6,
+      "mean_rate": {
+        "chi2": 0.9597000000000001,
+        "intersection": 0.9553999999999999,
+        "log_likelihood": 0.90225
+      },
+      "window": [
+        15,
+        18
+      ]
+    },
+    "LBP_8_2|k=2": {
+      "P": 8,
+      "P(HI>LL)": 0.18,
+      "P(chi2>HI)": 0.69,
+      "P(chi2>LL)": 0.41,
+      "R": 2.0,
+      "feature_length": 236,
+      "k": 2,
+      "mean_rate": {
+        "chi2": 0.9641,
+        "intersection": 0.9584500000000001,
+        "log_likelihood": 0.9620999999999998
+      },
+      "window": [
+        46,
+        56
+      ]
+    },
+    "LBP_8_2|k=3": {
+      "P": 8,
+      "P(HI>LL)": 1.0,
+      "P(chi2>HI)": 0.48,
+      "P(chi2>LL)": 1.0,
+      "R": 2.0,
+      "feature_length": 531,
+      "k": 3,
+      "mean_rate": {
+        "chi2": 0.9763499999999997,
+        "intersection": 0.9739499999999999,
+        "log_likelihood": 0.9191500000000002
+      },
+      "window": [
+        30,
+        37
+      ]
+    },
+    "LBP_8_2|k=4": {
+      "P": 8,
+      "P(HI>LL)": 0.99,
+      "P(chi2>HI)": 0.41,
+      "P(chi2>LL)": 1.0,
+      "R": 2.0,
+      "feature_length": 944,
+      "k": 4,
+      "mean_rate": {
+        "chi2": 0.9753999999999998,
+        "intersection": 0.9736,
+        "log_likelihood": 0.9367500000000001
+      },
+      "window": [
+        23,
+        28
+      ]
+    },
+    "LBP_8_2|k=5": {
+      "P": 8,
+      "P(HI>LL)": 1.0,
+      "P(chi2>HI)": 0.36,
+      "P(chi2>LL)": 1.0,
+      "R": 2.0,
+      "feature_length": 1475,
+      "k": 5,
+      "mean_rate": {
+        "chi2": 0.9704999999999999,
+        "intersection": 0.9691999999999998,
+        "log_likelihood": 0.9319
+      },
+      "window": [
+        18,
+        22
+      ]
+    },
+    "LBP_8_2|k=6": {
+      "P": 8,
+      "P(HI>LL)": 1.0,
+      "P(chi2>HI)": 0.33,
+      "P(chi2>LL)": 1.0,
+      "R": 2.0,
+      "feature_length": 2124,
+      "k": 6,
+      "mean_rate": {
+        "chi2": 0.9684500000000001,
+        "intersection": 0.9676999999999998,
+        "log_likelihood": 0.9360499999999999
+      },
+      "window": [
+        15,
+        18
+      ]
+    }
+  }
+}

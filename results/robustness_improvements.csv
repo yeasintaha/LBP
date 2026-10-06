@@ -1,0 +1,4 @@
+Configuration,Baseline,Uniform Brightness,Lighting Ramp (s=0.2),Lighting Ramp (s=0.4),Lighting Ramp (s=0.6),Lighting Ramp (s=0.8),Rotation (5 deg),Rotation (10 deg),Rotation (20 deg)
+Baseline (Raw Images),0.9750,0.9750,0.9600,0.9450,0.8950,0.7050,0.9700,0.9250,0.6300
+Global Histogram Equalization,0.9800,0.9750,0.9600,0.9500,0.8750,0.6950,0.9700,0.9300,0.6350
+Tan-Triggs Illumination Normalization,0.9700,0.9700,0.9700,0.9700,0.9650,0.9650,0.9600,0.9150,0.5250

@@ -1,0 +1,88 @@
+# Exact versions the code was developed and tested with (Python 3.11).
+numpy==2.4.4
+scipy==1.17.1
+Pillow==12.2.0
+
+
+
+This code recognizes faces by turning each photo into a "texture fingerprint" and matching it to the closest known face. 
+
+	For every pixel, it compares the pixel's brightness with 8 or 16 neighbours around it in a small circle and writes down the pattern of brighter and darker neighbours as a binary code (a Local Binary Pattern, or LBP). 
+
+	Codes that are "uniform" (at most two switches between brighter and darker around the circle, which covers edges, spots and flat areas) each get their own label, and all the other codes share one label. 
+
+	The face is then cut into a grid of small windows, and each window's labels are counted into a histogram. 
+
+	The histograms are joined end to end, so the feature vector records both which textures appear and where on the face they occur. 
+
+	To identify a person, the code measures how different two feature vectors are with the χ² (chi-square) distance and picks the stored face with the smallest distance. 
+
+The paper's weighted version counts the eye regions more and ignores the least useful windows. 
+
+The ORL experiment randomly splits each person's 10 photos into 5 stored faces and 5 test faces, repeats that 100 times, and reports the average correct-identification rate. 
+
+You should see about 98%, which is what the paper reports. 
+
+The rest of the project supports this: the FERET pipeline, tests that check the code against the paper's numbers, and settings that make every run repeat exactly.
+
+!unzip lbp_face.zip
+
+%cd /content/lbp_face
+!ls
+
+!pip install -r /content/lbp_face/requirements-dev.txt
+
+!git clone --depth 1 https://github.com/saeid436/Face-Recognition-MLP.git /content/orl_src
+!mkdir -p data
+!cp -r /content/orl_src/ORL data/ORL
+!python -m lbpface.datasets data/ORL
+
+import os
+os.environ["PYTHONPATH"] = "/content/lbp_face"
+%cd /content/lbp_face
+!ls /content/orl_src/ORL | head -5
+!mkdir -p /content/lbp_face/data
+!cp -r /content/orl_src/ORL /content/lbp_face/data/ORL
+!ls /content/lbp_face/data/ORL | head -3
+!python -m lbpface.datasets data/ORL
+
+!python -m pytest -q
+
+!python -m experiments.orl --data data/ORL --seed 0 --out results/orl_seed0.json
+
+!python -m experiments.orl --data data/ORL --seed 0 --out results/orl_seed0.json --expect expected/orl_seed0.json
+
+!python -m experiments.sweep --data data/ORL --seed 0 --out results/sweep_orl.json
+
+# Whole FERET pipeline on synthetic faces (no FERET needed)
+!python -m experiments.feret --demo results/demo_data --out results/feret_demo.json --n-perm 1000
+
+
+import numpy as np
+from scipy import ndimage
+from lbpface.datasets import load_orl
+from lbpface.features import LBPDescriptor
+from lbpface.distances import pairwise_distances
+from lbpface.classify import recognition_rate
+
+fs = load_orl("data/ORL")
+desc = LBPDescriptor.orl()                          # LBP(16,2), 30x37 windows
+is_gallery = (np.arange(len(fs.images)) % 10) < 5   # images 1-5 of each subject
+gal, prb = fs.images[is_gallery], fs.images[~is_gallery]
+gl, pl = fs.subjects[is_gallery], fs.subjects[~is_gallery]
+G = desc.transform(gal)
+
+def score(probe_images):
+    P = desc.transform(probe_images)
+    return recognition_rate(pairwise_distances(P, G, "chi2"), gl, pl)
+
+def illum_ramp(img, s):          # darker on the left, brighter on the right
+    return np.clip(img * (1 + s * np.linspace(-1, 1, img.shape[1])), 0, 255)
+
+def rotate(img, deg):
+    return ndimage.rotate(img.astype(float), deg, reshape=False, order=1, mode="nearest")
+
+print("baseline           ", score(prb))
+print("uniform brightness ", score([0.5 * i + 20 for i in prb]))
+for s in [0.2, 0.4, 0.6, 0.8]: print("lighting ramp", s, score([illum_ramp(i, s) for i in prb]))
+for d in [5, 10, 20]:          print("rotate", d, "deg", score([rotate(i, d) for i in prb]))
